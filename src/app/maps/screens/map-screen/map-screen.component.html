@@ -1,0 +1,7 @@
+<geo-loading *ngIf="!isUserLocationReady; else mapReady"></geo-loading>
+<ng-template #mapReady>
+  <geo-map-view></geo-map-view>
+  <geo-btn-my-location></geo-btn-my-location>
+  <geo-search-bar></geo-search-bar>
+</ng-template>
+<geo-angular-logo></geo-angular-logo>

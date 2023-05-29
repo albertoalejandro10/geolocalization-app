@@ -1,0 +1,10 @@
+<div class="search-container">
+  <input 
+    type="text"
+    class="form-control"
+    placeholder="Search location..."
+    #txtQuery
+    (keyup)="onQueryChanged(txtQuery.value)"
+  >
+  <geo-search-location></geo-search-location>
+</div>
