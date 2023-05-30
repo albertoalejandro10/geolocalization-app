@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./angular-logo.component.scss']
 })
 export class AngularLogoComponent {
-
+  sendToAngularDocs() {
+    if ( !window.confirm('Are you sure you want to go to AngularDocs?') ) return
+    window.location.href = 'https://angular.io/docs';
+  }
 }

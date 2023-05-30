@@ -1,5 +1,8 @@
 .loading-map {
-  background-color: rgba(0, 0, 0, 0.8);
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   color: white;
   height: 100vh;
   position: fixed;
@@ -8,10 +11,19 @@
   width: 100vw;
 }
 
-h3 {
-  color: #dd1b16;
+.loading-text {
+  color: transparent;
+  background-clip: text;
+  background-image: linear-gradient(to right, #dd1b16, #c82424);
+  font-weight: 700;
+  letter-spacing: calc(1em/8);
+  padding: calc(1em/16);
+  -webkit-text-stroke-color: transparent;
+  -webkit-text-stroke-width: calc(1em/16);
+  margin-bottom: 16px;
 }
 
+// Animated Ring
 .ring {
   --uib-size: 40px;
   --uib-speed: 2s;

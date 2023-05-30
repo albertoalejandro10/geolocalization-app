@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AnySourceData, LngLatLike, Marker, Popup } from 'mapbox-gl';
-import { Map } from 'mapbox-gl';
-import { Feature } from '../interfaces/places';
-import { LngLatBounds } from 'mapbox-gl';
+import { Map, AnySourceData, LngLatLike, LngLatBounds, Marker, Popup } from 'mapbox-gl';
+
 import { DirectionsApiClient } from '../API';
+
 import { DirectionsResponse, Route } from '../interfaces/direction';
+import { Feature } from '../interfaces/places';
 
 @Injectable({
   providedIn: 'root'
@@ -91,7 +91,8 @@ export class MapService {
           coordinates: coords
         }
       }
-    }
+    };
+
     // TODO: Clean route
     if ( this.map.getLayer('RouteString')) {
       this.map.removeLayer('RouteString')
