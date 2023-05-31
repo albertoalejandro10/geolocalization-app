@@ -17,9 +17,7 @@ export class MapService {
     return !!this.map;
   }
 
-  constructor( private directionApiClient: DirectionsApiClient ) {
-
-  }
+  constructor( private directionApiClient: DirectionsApiClient ) { }
 
   setMap( map: Map ) {
     this.map = map;

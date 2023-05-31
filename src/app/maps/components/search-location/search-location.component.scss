@@ -2,6 +2,11 @@
   cursor: pointer;
 }
 
+.active {
+  border: 1px solid #dd1b16;
+  background-color: rgba(192, 61, 61, 0.7);
+}
+
 p {
-  font-size: 12px;
+  font-size: 10px;
 }

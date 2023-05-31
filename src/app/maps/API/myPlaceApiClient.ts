@@ -3,8 +3,8 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({providedIn: 'root'})
-export class DirectionsApiClient extends HttpClient {
-  public baseUrl: string = 'https://api.mapbox.com/directions/v5/mapbox/driving';
+export class myPlaceApiClient extends HttpClient {
+  public baseUrl: string = 'https://api.mapbox.com/geocoding/v5/mapbox.places';
   constructor( handler: HttpHandler ) {
     super( handler );
   }
@@ -12,11 +12,6 @@ export class DirectionsApiClient extends HttpClient {
     url = this.baseUrl + url;
     return super.get<T>( url, {
       params: {
-        alternatives: false,
-        geometries: 'geojson', 
-        language: 'en',
-        overview: 'simplified',
-        steps: false,
         access_token: environment.apiKey,
       }
     })

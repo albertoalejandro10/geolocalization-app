@@ -12,6 +12,7 @@
   padding: 5px;
 }
 
-.form-control {
+.form-control:focus {
   border: 1px solid #dd1b16;
+  box-shadow: 0 0 0 0.2rem rgba(192, 61, 61, 0.25);
 }
