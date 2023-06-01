@@ -81,6 +81,7 @@ export class MapService {
     // PolyLine
     const sourceData: AnySourceData = {
       type: 'geojson',
+      lineMetrics: true,
       data: {
         type: 'Feature',
         properties: {},
@@ -91,7 +92,7 @@ export class MapService {
       }
     };
 
-    // TODO: Clean route
+    //** Clean Route
     if ( this.map.getLayer('RouteString')) {
       this.map.removeLayer('RouteString')
       this.map.removeSource('RouteString')
@@ -106,9 +107,43 @@ export class MapService {
         "line-join": 'round',
       },
       paint: {
-        'line-color': 'black',
-        'line-width': 3
+        'line-width': [
+          'case',
+          ['boolean', ['feature-state', 'hover'], false],
+          2,
+          3
+        ],
+        'line-color': [
+          'case',
+          ['boolean', ['feature-state', 'hover'], false],
+          '#000',
+          '#dd1b16'
+        ]
       }
+    });
+
+    let popup = new Popup({
+      closeButton: false,
+      closeOnClick: false
+    });
+
+    const distance: number = parseFloat((route.distance / 1000).toFixed(2));
+    const duration: number = parseFloat((route.duration / 60).toFixed(2));
+
+    this.map.on('mouseenter', 'RouteString', event => {
+      popup
+        .setLngLat(event.lngLat)
+        .setHTML(`
+          <div class="custom-popup-content">
+            <h6>Distance: ${distance} km</h6>
+            <h6>Time on car: ${duration} min</h6>
+          </div>
+        `)
+        .addTo(this.map!);
+    });
+
+    this.map.on('mouseleave', 'RouteString', () => {
+      popup.remove();
     });
   }
 }

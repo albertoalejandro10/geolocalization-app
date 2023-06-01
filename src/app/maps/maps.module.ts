@@ -9,7 +9,6 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { SearchLocationComponent } from './components/search-location/search-location.component';
 
 
-
 @NgModule({
   declarations: [
     MapScreenComponent,
@@ -18,7 +17,7 @@ import { SearchLocationComponent } from './components/search-location/search-loc
     BtnMyLocationComponent,
     AngularLogoComponent,
     SearchBarComponent,
-    SearchLocationComponent
+    SearchLocationComponent,
   ],
   imports: [
     CommonModule
