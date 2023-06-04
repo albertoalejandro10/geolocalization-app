@@ -8,6 +8,9 @@ I follow the rules and best practices from Angular to ensure my code is maintain
 - Single Responsibility Principle (Each component should have a single responsibility).
 - TypeScript.
 - Observables.
+- Services
+
+The most challenging aspect of the application thus far was creating the polyline between two points, which required me to gain familiarity with the Mapbox navigation API and devise a solution.
 
 ## Live DEMO
 Check out the live demo of this app here.
