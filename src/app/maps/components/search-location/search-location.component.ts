@@ -17,12 +17,14 @@ export class SearchLocationComponent {
     return this.placesService.places;
   }
   sendTo( place: Feature ) {
+    this.mapService.deletePolyline();
     this.selectedId = place.id;
     const [ lng, lat ] = place.center;
     this.mapService.sendTo([lng, lat]);
   }
   getDirections( place: Feature ) {
     if (!this.placesService.location) throw Error('There is not a user location');
+    this.mapService.deletePolyline();
     this.placesService.deletePlaces();
 
     const start = this.placesService.location;

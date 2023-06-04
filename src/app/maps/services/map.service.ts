@@ -97,6 +97,7 @@ export class MapService {
       this.map.removeLayer('RouteString')
       this.map.removeSource('RouteString')
     }
+    
     this.map.addSource( 'RouteString', sourceData );
     this.map.addLayer({
       id: 'RouteString',
@@ -145,5 +146,12 @@ export class MapService {
     this.map.on('mouseleave', 'RouteString', () => {
       popup.remove();
     });
+  }
+
+  deletePolyline() {
+    if ( this.map!.getLayer('RouteString')) {
+      this.map!.removeLayer('RouteString')
+      this.map!.removeSource('RouteString')
+    }
   }
 }
